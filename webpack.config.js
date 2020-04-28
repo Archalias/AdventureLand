@@ -4,8 +4,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   mode: "development",
   entry: {
-    interface: "./scripts/interface/interface", // string | object | array
-    main: "./scripts/main" // string | object | array
+    'farm.metrics': "./scripts/interface/farmMetrics",
+    'inventory.enhancements': "./scripts/interface/inventoryEnhancements"
   },
   optimization: {
     minimize: true,
@@ -20,16 +20,9 @@ module.exports = {
       })
     ]
   },
-  // defaults to ./src
-  // Here the application starts executing
-  // and webpack starts bundling
   output: {
-    // options related to how webpack emits results
-    path: path.resolve(__dirname, "dist"), // string
-    // the target directory for all output files
-    // must be an absolute path (use the Node.js path module)
-    filename: "[name].bundle.js", // string
-    // the filename template for entry chunks0
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js"
   },
   module: {
     rules: [
