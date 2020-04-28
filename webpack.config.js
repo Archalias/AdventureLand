@@ -12,9 +12,11 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
+          mangle: true,
           keep_classnames: false,
           keep_fnames: false
-        }
+        },
+        extractComments: false
       })
     ]
   },
